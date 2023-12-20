@@ -15,10 +15,10 @@ namespace APIDeps.Services
             _portalTransparenciaAPI = portalTransparenciaAPI;
         }
 
-        public async Task<ResponseGenerico<PepCpfResponse>> PepConsultaPorCPF(string cpf)
+        public async Task<ResponseGenerico<List<PepCpfResponse>>> PepConsultaPorCPF(string cpf)
         {
-            var pep = await _portalTransparenciaAPI.PepConsultaPorCPF(cpf);
-            return _mapper.Map<ResponseGenerico<PepCpfResponse>>(pep);
+            var peps = await _portalTransparenciaAPI.PepConsultaPorCPF(cpf);
+            return _mapper.Map<ResponseGenerico<List<PepCpfResponse>>>(peps);
         }
     }
 }

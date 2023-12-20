@@ -1,5 +1,6 @@
 ﻿using APIDeps.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace APIDeps.Controllers
@@ -22,7 +23,7 @@ namespace APIDeps.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
-        public async Task<ActionResult> PepConsultaPorCPF([FromRoute] string cpf)
+        public async Task<ActionResult> PepConsultaPorCPF([FromRoute][RegularExpression("^[0-9]*$")] string cpf)
         {
             var response = await _pepCpfService.PepConsultaPorCPF(cpf);
             if (response.CodigoHttp == HttpStatusCode.OK)

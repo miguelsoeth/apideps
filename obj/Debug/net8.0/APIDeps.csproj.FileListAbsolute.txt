@@ -32,3 +32,4 @@ C:\Users\labdeps\Downloads\APIDeps\obj\Debug\net8.0\refint\APIDeps.dll
 C:\Users\labdeps\Downloads\APIDeps\obj\Debug\net8.0\APIDeps.pdb
 C:\Users\labdeps\Downloads\APIDeps\obj\Debug\net8.0\APIDeps.genruntimeconfig.cache
 C:\Users\labdeps\Downloads\APIDeps\obj\Debug\net8.0\ref\APIDeps.dll
+C:\Users\labdeps\Downloads\APIDeps\obj\Debug\net8.0\APIDeps.sourcelink.json

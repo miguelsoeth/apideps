@@ -5,6 +5,6 @@ namespace APIDeps.Interfaces
 {
     public interface IPepCpfService
     {
-        Task<ResponseGenerico<PepCpfResponse>> PepConsultaPorCPF(string cpf);
+        Task<ResponseGenerico<List<PepCpfResponse>>> PepConsultaPorCPF(string cpf); 
     }
 }
