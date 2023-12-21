@@ -7,6 +7,6 @@ namespace APIDeps.Interfaces
     public interface IPortalTransparenciaAPI
     {
         Task<ResponseGenerico<List<PepCpfModel>>> PepConsultaPorCPF(string cpf);
-        Task<ResponseGenerico<List<CepimCnpjResponse>>> CepimConsultaPorCNPJ(string cnpj);
+        Task<ResponseGenerico<List<CepimCnpjModel>>> CepimConsultaPorCNPJ(string cnpj);
     }
 }

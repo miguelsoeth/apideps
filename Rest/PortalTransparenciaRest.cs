@@ -35,17 +35,17 @@ namespace APIDeps.Rest
             return response;
         }
 
-        public async Task<ResponseGenerico<List<CepimCnpjResponse>>> CepimConsultaPorCNPJ(string cnpj)
+        public async Task<ResponseGenerico<List<CepimCnpjModel>>> CepimConsultaPorCNPJ(string cnpj)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.portaldatransparencia.gov.br/api-de-dados/cepim?cnpjSancionado={cnpj}");
             request.Headers.Add("chave-api-dados", apiKey);
-            var response = new ResponseGenerico<List<CepimCnpjResponse>>();
+            var response = new ResponseGenerico<List<CepimCnpjModel>>();
 
             using (var client = new HttpClient())
             {
                 var responsePortalTransparenciaApi = await client.SendAsync(request);
                 var contentResponse = await responsePortalTransparenciaApi.Content.ReadAsStringAsync();
-                var objResponse = JsonSerializer.Deserialize<List<CepimCnpjResponse>>(contentResponse);
+                var objResponse = JsonSerializer.Deserialize<List<CepimCnpjModel>>(contentResponse);
 
                 if (responsePortalTransparenciaApi.IsSuccessStatusCode)
                 {
