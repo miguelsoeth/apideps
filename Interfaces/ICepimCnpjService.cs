@@ -1,12 +1,10 @@
-﻿
-using APIDeps.Dtos;
+﻿using APIDeps.Dtos;
 using APIDeps.Models;
 
 namespace APIDeps.Interfaces
 {
-    public interface IPortalTransparenciaAPI
+    public interface ICepimCnpjService
     {
-        Task<ResponseGenerico<List<PepCpfModel>>> PepConsultaPorCPF(string cpf);
         Task<ResponseGenerico<List<CepimCnpjResponse>>> CepimConsultaPorCNPJ(string cnpj);
     }
 }

@@ -14,9 +14,11 @@ builder.Services.AddSwaggerGen();
 
 /*CONFIG*/
 builder.Services.AddSingleton<IPepCpfService, PepCpfService>();
+builder.Services.AddSingleton<ICepimCnpjService, CepimCnpjService>();
 builder.Services.AddSingleton<IPortalTransparenciaAPI, PortalTransparenciaRest>();
 
 builder.Services.AddAutoMapper(typeof(PepCpfMapping));
+builder.Services.AddAutoMapper(typeof(CepimCnpjMapping));
 
 var app = builder.Build();
 

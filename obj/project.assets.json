@@ -730,23 +730,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\labdeps\\.nuget\\packages\\": {},
+    "C:\\Users\\migue\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\labdeps\\Downloads\\APIDeps\\APIDeps.csproj",
+      "projectUniqueName": "H:\\Trabalho\\apideps\\APIDeps.csproj",
       "projectName": "APIDeps",
-      "projectPath": "C:\\Users\\labdeps\\Downloads\\APIDeps\\APIDeps.csproj",
-      "packagesPath": "C:\\Users\\labdeps\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\labdeps\\Downloads\\APIDeps\\obj\\",
+      "projectPath": "H:\\Trabalho\\apideps\\APIDeps.csproj",
+      "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+      "outputPath": "H:\\Trabalho\\apideps\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\labdeps\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
