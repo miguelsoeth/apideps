@@ -1,4 +1,5 @@
 ﻿using APIDeps.Interfaces;
+using APIDeps.Validations;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
@@ -24,15 +25,23 @@ namespace APIDeps.Controllers
 
         public async Task<ActionResult> PepConsultaPorCPF([FromRoute][RegularExpression("^[0-9]*$")] string cpf)
         {
-            var response = await _pepCpfService.PepConsultaPorCPF(cpf);
-            if (response.CodigoHttp == HttpStatusCode.OK)
+            if (ValidadorCpf.IsValid(cpf))
             {
-                return Ok(response.DadosRetorno);
+                var response = await _pepCpfService.PepConsultaPorCPF(cpf);
+                if (response.CodigoHttp == HttpStatusCode.OK)
+                {
+                    return Ok(response.DadosRetorno);
+                }
+                else
+                {
+                    return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
+                }
             }
             else
             {
-                return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
+                return BadRequest("CPF inválido");
             }
+            
         }
     }
 }
