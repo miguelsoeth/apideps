@@ -2,6 +2,8 @@ using APIDeps.Interfaces;
 using APIDeps.Mappings;
 using APIDeps.Rest;
 using APIDeps.Services;
+using Microsoft.EntityFrameworkCore;
+using postgreAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 /*CONFIG*/
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DatabaseConnection"));
+});
+
 builder.Services.AddSingleton<IPepCpfService, PepCpfService>();
 builder.Services.AddSingleton<ICepimCnpjService, CepimCnpjService>();
 builder.Services.AddSingleton<IPortalTransparenciaAPI, PortalTransparenciaRest>();
