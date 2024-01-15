@@ -1,5 +1,6 @@
 ﻿using APIDeps.Interfaces;
 using APIDeps.Validations;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
@@ -8,6 +9,7 @@ namespace APIDeps.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class PepCpfController : ControllerBase
     {
         public readonly IPepCpfService _pepCpfService;

@@ -1,5 +1,6 @@
 ﻿using APIDeps.Interfaces;
 using APIDeps.Validations;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
@@ -7,7 +8,8 @@ using System.Net;
 namespace APIDeps.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class CepimCnpjController : ControllerBase
     {
         public readonly ICepimCnpjService _cepimCnpjService;
