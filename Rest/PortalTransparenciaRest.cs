@@ -9,9 +9,9 @@ namespace APIDeps.Rest
     public class PortalTransparenciaRest : IPortalTransparenciaAPI
     {
         private readonly string apiKey = "7c137febe8f79a03ffe7a437026f0e05";
-        public async Task<ResponseGenerico<List<PepCpfModel>>> PepConsultaPorCPF(string cpf)
+        public async Task<ResponseGenerico<List<PepCpfModel>>> PepConsultaPorCPF(string cpf, string periodoInicial, string periodoFinal)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.portaldatransparencia.gov.br/api-de-dados/peps?cpf={cpf}");            
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.portaldatransparencia.gov.br/api-de-dados/peps?cpf={cpf}&dataInicioExercicioDe={periodoInicial}&datInicioExercicioAte={periodoFinal}");            
             request.Headers.Add("chave-api-dados", apiKey);
 
             var response = new ResponseGenerico<List<PepCpfModel>>();
