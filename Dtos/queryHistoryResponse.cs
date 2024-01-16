@@ -7,5 +7,6 @@
         public string document { get; set; }
         public DateTime referredDate { get; set; }
         public string interval { get; set; }
+        public string? interval_label {  get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace postgreAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<queryHistoryModel>>> GetQueryHistory()
         {
-            var history = await _context.queries.OrderByDescending(q => q.querydate).Take(100).ToListAsync();
+            var history = await _context.queries.OrderByDescending(q => q.querydate).Take(500).ToListAsync();
 
             if (history is null)
             {
@@ -47,14 +47,15 @@ namespace postgreAPI.Controllers
             var command = new NpgsqlCommand
             {
                 Connection = connection,
-                CommandText = "INSERT INTO public.queries (username, type, document, referredDate, interval) " +
-                                  "VALUES (@username, @type, @document, @referredDate, @interval) RETURNING *"
+                CommandText = "INSERT INTO public.queries (username, type, document, referredDate, interval, interval_label) " +
+                                  "VALUES (@username, @type, @document, @referredDate, @interval, @interval_label) RETURNING *"
             };
             command.Parameters.AddWithValue("username", qh.username);
             command.Parameters.AddWithValue("type", qh.type);
             command.Parameters.AddWithValue("document", qh.document);
             command.Parameters.AddWithValue("referredDate", qh.referredDate);
             command.Parameters.AddWithValue("interval", qh.interval);
+            command.Parameters.AddWithValue("interval_label", qh.interval_label);
 
             using (var reader = await command.ExecuteReaderAsync())
             {
@@ -68,7 +69,8 @@ namespace postgreAPI.Controllers
                         type = reader["type"].ToString(),
                         document = reader["document"].ToString(),
                         referreddate = Convert.ToDateTime(reader["referredDate"]),
-                        interval = reader["interval"].ToString()
+                        interval = reader["interval"].ToString(),
+                        interval_label = reader["interval_label"].ToString()
                     };
                     reader.Close();
                     return result;

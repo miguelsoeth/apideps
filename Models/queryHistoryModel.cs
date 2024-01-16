@@ -9,5 +9,6 @@
         public string document { get; set; }
         public DateTime referreddate { get; set; }
         public string interval { get; set; }
+        public string interval_label { get; set; }
     }
 }
